@@ -109,3 +109,77 @@ function greet(){
     console.log("Hello");  
 }
 
+
+
+console.log('****************************************************************************************');
+
+// pure function 
+// same input = same output
+
+let a = 20;
+function good(val){
+  console.log(val + 2);
+}
+good(10);
+good(10);
+good(10);
+
+// impure function
+
+let num = 12;
+function change(val){
+    num = Math.random() + val;
+    console.log(`change num  value ${num}`);
+}
+change(12);
+
+//************************************************************************************/
+
+// scope in javascripte
+
+let number = 10; // global scope 
+
+function info1(){
+    let infunctio = 20;  // function scope
+    console.log(infunctio);
+    console.log(number);   
+}
+
+info1();
+console.log(number);
+//console.log(infunctio);  // function scope show an error
+
+
+// -------------------*********************--------------------//
+
+// closure 
+// closure is also an higher order function but closure slidely different'
+// the closure are used the variable of parant function
+
+// Higher order function
+
+function high(){
+    return function(){
+        console.log("Concept of higher order function");
+    }
+}
+high()();
+
+// closure
+
+function big(){
+    let number1 = 20;
+    return function(){
+        console.log(`The number is ${number1}`);
+    }
+}
+
+big()();
+
+// Higher order function
+function king(val){
+   val();
+}
+king(()=>{
+    console.log("Higher Order Function");  
+})
