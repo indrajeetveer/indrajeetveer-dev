@@ -139,19 +139,38 @@ impurefunction();
 //    inside its parameters to extract and print
 //    `name` and `age`.
 
-let studentInfo ={
-    name:"Indrajeet",
-    age:22,
-    Gmail:"veer@gmal.com"
+function abc({name,age}){
+  console.log(name,age);
 }
 
-let {name,age,Gmail} = studentInfo;
-console.log(`Student name is ${name} and age is ${age}`);
+abc({name:"indrajeet",age:22})
+
+// let studentInfo ={
+//     name:"Indrajeet",
+//     age:22,
+//     Gmail:"veer@gmal.com"
+// }
+
+// let {name,age,Gmail} = studentInfo;
+// console.log(`Student name is ${name} and age is ${age}`);
 
 
 // 4. Demonstrate the difference between a normal function
 //    and an arrow function when used as object methods
 //    (focus on the `this` keyword).
+
+let obj ={
+    name:"Indrajeet",
+    fun:function(){
+        console.log(this);  // object
+    },
+    fun1:()=>{
+        console.log(this);  // windo
+    }
+}
+
+obj.fun();
+obj.fun1();
 
 // 5. Given an array of numbers,
 //    use `map()` to create a new array
@@ -168,7 +187,7 @@ arr.map((a)=>{
 
 let arr1 = [2,3,5,7,6,8,10];
 arr1.filter((a)=>{
-   if(a%2==0){
+   if(a%2===0){
     console.log(a);
    }else{}
 })
@@ -188,16 +207,68 @@ console.log(newarr);
 // 8. Create an array of names and use:
 //    - `some()` to test if at least one name
 //      satisfies a condition.
+
+let nameArr = ['veer','om','Indrajeet','rohan','shanti']
+let ans = nameArr.some((val)=>{
+     return val.length>2;
+})
+
+console.log(ans);
+
+
 //    - `every()` to test if all names
 //      satisfy a condition.
 //    Example condition: all names are longer than 3 characters.
 
+let num11 = [1,2,3,4,5];
+let ans2 = num11.every((val)=>{
+    return val>2
+})
+
+console.log(ans2);
+
+
 // 9. Create an object `user` and test the behavior of:
 //    - `Object.freeze()`
+
+let obj1 = {
+    name:"Indrajeet",
+    age:22,
+    Gmail:"Ind@gmail.com"
+}
+
+Object.freeze(obj1);  // the freeze are the stop all modification in an object
+obj1.name = "veer"  // not add in the object 
+
 //    - `Object.seal()`
 //    Try adding, updating, and deleting properties,
 //    then observe the results.
 
+
+let obj11= {
+    name:"Veer",
+    age:22,
+    Gmail:"Ind@gmail.com"
+}
+
+Object.seal(obj11);
+obj11.name="Indrajeet"
+console.log(obj11.name); // you can update an old recored in an array by using the seal method
+obj11.phone = 2571902922;
+console.log(obj11);  // this new recored additon is not allowed
+
+
 // 10. Create a nested object:
 //     user -> address -> city
 //     Access and print the city name.
+
+let nestobj = {
+    user :{
+        address:{
+            city:"Ghansoli"
+        }
+    }
+}
+ let {city} = nestobj.user.address;
+ console.log(city);
+ 
