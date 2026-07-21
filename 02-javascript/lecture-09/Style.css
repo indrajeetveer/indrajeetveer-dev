@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: black;
+}
+
+button{
+    margin: 10px;
+    padding: 10px;
+    background-color: aqua;
+    font-size: 20px;
+}
