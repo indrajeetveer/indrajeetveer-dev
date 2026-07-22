@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+main{
+ height: 100%;
+ width: 100%;
+ background-color:white;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+button{
+    padding: 10px 20px;
+    border: 2px solid black;
+    margin-top: 20px;
+}
+
+button:active{
+    scale: 0.95;
+}
+
+.card{
+    height: 200px;
+    width: 350px;
+    background-color:sandybrown;
+    border-radius: 10px;
+    border: 2px solid wheat;
+}
+
+h1{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.main1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outer{
+    height: 20px;
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.inner{
+    height: 100%;
+    border-radius: 10px;
+}
+
+h2{
+    margin-top: 20px;
+    font-size: 35px;
+}
+.bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+}
+
+button{
+    background-color: skyblue;
+    border: 2px solid black;
+    font-weight: 600;
+    border-radius: 10px;
+}
