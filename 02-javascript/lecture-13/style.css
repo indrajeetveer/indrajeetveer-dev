@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html,body{
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+main{
+    height: 400px;
+    width: 300px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    position: relative;
+    overflow: hidden;
+}
+
+main div{
+    position: relative;
+    overflow: hidden;
+}
+main img{
+    height: 300px;
+    width: 250px;
+    border-radius: 10px;
+}
+
+main h1{
+    text-align: center;
+    margin-top: 10px;
+}
+
+main i{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+    font-size: 60px;
+   color: white;
+   opacity: 0;
+   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk_f9EnUqlg-O1CaaTQIvPNsINAEXAq0xueOCyuQTXCw&s=10);
+   background-size: cover;
+   background-clip: text;
+   -webkit-background-clip: text;
+   color:transparent;
+   transform: translate(-50%,-50%) scale(0) rotate(-60deg);
+   transition: all cubic-bezier(.65,1,.77,1.44) 0.3s;
+}
