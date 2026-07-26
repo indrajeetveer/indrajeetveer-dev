@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient( To Right Bottom, rgb(26,26,26),rgb(35,35, 35),black);
+    padding: 20px;
+}
+
+section{
+    height: 100%;
+    width: 350px;
+    background-color: black;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.all-reels{
+    height: 100%;
+    width: 100%;
+}
+
+.reel{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: lightseagreen;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.reel img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.reel .bottom{
+    padding: 30px 20px;
+    background: linear-gradient(black,black);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.bottom .user{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bottom .user img{
+    height: 20px;
+    width: 20px;
+    border-radius: 30px;
+    object-fit: cover;
+}
