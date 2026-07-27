@@ -111,8 +111,12 @@ const reels = [
   }
 ];
 
- let sum = ''
- reels.forEach((elem)=>{
+ let allReels = document.querySelector('.all-reels');
+
+ function addData(){
+   let sum = ''
+ reels.forEach((elem,idx)=>{
+  
     sum = sum + ` <div class="reel">
                     <video autoplay loop muted src="${elem.video}"></video>
                     <div class="bottom">
@@ -124,7 +128,7 @@ const reels = [
                         <h3>${elem.caption}</h3>
                     </div>
                     <div class="right">
-                       <div class="like">
+                       <div id=${idx} class="like">
                         <h4 class="like-icon icon">${elem.isLike?'<i class="ri-heart-3-fill"></i>':'<i class="ri-heart-3-line"></i>'}</i></h4>
                         <h6>${elem.likeCount}</h6>
                        </div>
@@ -146,5 +150,13 @@ const reels = [
                 </div>`
  })
 
- let one = document.querySelector('.all-reels');
- one.innerHTML = sum
+ allReels .innerHTML = sum
+ }
+
+addData();
+
+allReels.addEventListener('click',function(elem){
+  reels[elem.target.id].likeCount++
+  reels[elem.target.id].isLike = true
+   addData();
+})

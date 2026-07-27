@@ -103,6 +103,7 @@ section{
     width: 40px;
     position: absolute;
     right: 0;
+    align-items: center;
     /* transform: translate(100%); */
     bottom: 0;
     display: flex;
@@ -133,8 +134,18 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 50px;
+    cursor: pointer;
 }
 
 .ri-heart-3-fill{
     color:red;
+}
+
+.right> div h4{
+    pointer-events: none;
+}
+
+.right> div h6{
+    pointer-events: none;
 }
