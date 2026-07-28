@@ -123,7 +123,7 @@ const reels = [
                         <div class="user">
                             <img src="${elem.userProfile}" alt="">
                             <h4>${elem.username}</h4>
-                            <button>${elem.isFollow?"UnFllow":"Fllow"}</button>
+                            <button class="follow" id=${idx} >${elem.isFollow?"UnFllow":"Follow"}</button>
                         </div>
                         <h3>${elem.caption}</h3>
                     </div>
@@ -133,7 +133,7 @@ const reels = [
                         <h6>${elem.likeCount}</h6>
                        </div>
 
-                       <div class="comment">
+                       <div id=${idx} class="comment">
                         <h4 class="commnet-icon icon"><i class="ri-chat-3-line"></i></h4>
                         <h6>${elem.commentCount}</h6>
                        </div>
@@ -156,7 +156,24 @@ const reels = [
 addData();
 
 allReels.addEventListener('click',function(elem){
-  reels[elem.target.id].likeCount++
-  reels[elem.target.id].isLike = true
+      
+  if([elem.target.className == 'like']){
+    if(!reels[elem.target.id].isLike == true){
+     reels[elem.target.id].likeCount++
+     reels[elem.target.id].isLike = true
+   }else{
+     reels[elem.target.id].likeCount--
+     reels[elem.target.id].isLike = false
+  }
+     
+  }
+
+  if([elem.target.className == 'follow']){
+    if(!reels[elem.target.id].isFollow == true){
+      reels[elem.target.id].isFollow = true
+    }else{
+        reels[elem.target.id].isFollow = false
+    }
+  }
    addData();
 })
