@@ -15,7 +15,7 @@ p.addEventListener('mouseenter',()=>{
    }).join("")
     p.innerText = final;
     
-    iteration += 0.2
+    iteration += 0.25
 }
 
 setInterval(randomText,50)
