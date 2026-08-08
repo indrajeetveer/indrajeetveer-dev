@@ -1,0 +1,1 @@
+solve Question based on the Array , object and 
