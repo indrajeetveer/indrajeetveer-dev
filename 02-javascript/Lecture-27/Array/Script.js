@@ -140,3 +140,90 @@ const numbers = [5, 12, 8, 20, 15, 3, 10];
 
 // let arrReverse = numbers.reverse();
 // console.log(arrReverse);
+
+
+
+// //////////  Part 2: Array Methods on Strings /////////////////////
+
+const fruits = [
+  "Apple",
+  "Banana",
+  "Mango",
+  "Orange",
+  "Kiwi",
+  "Pineapple"
+];
+
+// let upperCase = fruits.map((e)=>{
+//    let upFruit =  e.toUpperCase();
+//     return upFruit
+// })
+// console.log(upperCase);
+
+// let lowerCase = fruits.map((e)=>{
+//    let lower = e.toLowerCase();
+//    return lower
+// })
+// console.log(lowerCase);
+
+// let length = fruits.map((e)=>{
+//    let fruitLength = e.length
+//    return fruitLength
+// })
+// console.log(length);
+
+// let add = fruits.map((e)=>{
+//     let front_name = ` Fruit:${e}`
+//     return front_name
+// })
+
+// console.log(add);
+
+///////////  Filtre //////////
+
+// let startWithA = fruits.filter((e)=>{
+//     let operation =  e.split('')
+//     if(operation[0]==="M"){
+//         return operation
+//     }else{
+
+//     }
+     
+// }).join()
+// console.log(startWithA);
+
+// let contains = fruits.filter((e)=> e.includes('an'));
+// console.log(contains);
+
+// let lengthOfWord = fruits.filter((e)=> e.split('').length>5).join();
+// console.log(lengthOfWord);
+
+// let endsWith = fruits.filter((e)=> e.endsWith('e'))
+// console.log(endsWith);
+
+//###########  find() #################//
+
+// let length = fruits.find((e)=> e.length>6)
+// console.log(length);
+
+// let fristwordchack = fruits.find((e)=> e.startsWith('M'));
+// console.log(fristwordchack);
+
+
+/// #######################  some() ###############////
+
+// let check = fruits.some((e)=> e.includes('pp'));
+// console.log(check);
+
+/// #######################  every() ###############////
+
+// let check2 = fruits.every((e)=> e.length>4)
+// console.log(check2);
+
+// let findIndex = fruits.indexOf("Orange");
+// console.log(findIndex);
+
+// let sortfruit = fruits.sort();
+// console.log(sortfruit);
+
+
