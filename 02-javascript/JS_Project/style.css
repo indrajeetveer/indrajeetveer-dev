@@ -129,3 +129,79 @@ section.allElems {
 .back:active {
     transform: scale(0.95);
 }
+
+.message{
+    margin-top: 30px;
+    padding: 15px 30px;
+    height: 400px;
+    width: 600px;
+    background-color: var(--sec);
+    border-radius: 10px;
+    border: 3px solid black;
+    font-size: 60px;
+    overflow: auto;
+    font-family: Reguler;
+}
+
+.message>p{
+    color: #0670767d;
+    font-weight: 700;
+}
+
+/* Code Of To do list  */
+
+info{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sub-main{
+    border: 2px solid black;
+    height: 500px;
+    width: 550px;
+    border-radius: 10px;
+    background-color: white;
+    overflow: auto;
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.input>input{
+    padding: 15px;
+    width: 400px;
+    border-radius: 10px;
+    border: 3px solid rgba(0, 0, 255, 0.852);
+}
+
+button{
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: rgba(0, 0, 255, 0.486);
+    color: white;
+    border: none;
+}
+
+#result {
+    margin-top: 30px;
+}
+
+.task {
+    background-color: #c7c7ff;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    margin-left: 20px;
+}
