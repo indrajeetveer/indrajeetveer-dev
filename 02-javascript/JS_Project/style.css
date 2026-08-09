@@ -1,0 +1,131 @@
+:root {
+    --pri: #F9F8F6;
+    --sec: #EFE9E3;
+    --tri1: #D9CFC7;
+    --tri2: #C9B59C;
+}
+
+@font-face {
+    font-family: Reguler;
+    src: url(./fonnts.com-Aeonik-Regular.ttf);
+}
+
+@font-face {
+    font-family: Bold;
+    src: url(./fonnts.com-Aeonik-Bold.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Reguler;
+    color: black;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    background-color: var(--tri2);
+    font-family: Bold;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--tri1);
+    z-index: 20;
+}
+
+section.allElems {
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    padding-top: 80px;
+    background-color: var(--tri2);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    align-items: flex-start;
+    gap: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.elem {
+    background-color: #feba17;
+    height: 400px;
+    width: 300px;
+    font-size: 30px;
+    flex: 0 0 300px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all ease 0.2s;
+    cursor: pointer;
+    box-shadow: 0 5px 20px var(--pri);
+}
+
+.elem img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.elem h2 {
+    position: absolute;
+    bottom: 4%;
+    right: 5%;
+    margin: 0;
+    font-weight: 900;
+    font-size: 30px;
+    color: white;
+    text-shadow: 0 2px 5px black;
+}
+
+.elem:active {
+    transform: scale(0.95);
+}
+
+.fullElem {
+    height: 100%;
+    width: 100%;
+    background-color: #C9B59C;
+    padding: 40px;
+    font-size: 60px;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: auto;
+}
+
+.back {
+    position: absolute;
+    top: 40px;
+    right: 5%;
+    background-color: var(--sec);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    border: 2px solid rgba(0, 0, 0, 0.422);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back:active {
+    transform: scale(0.95);
+}
