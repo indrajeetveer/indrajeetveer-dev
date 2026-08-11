@@ -22,7 +22,7 @@ let fullElemPageBackbtn = document.querySelectorAll(".fullElem .back");
 allElems.forEach((elem) => {
     elem.addEventListener("click", () => {
         let index = Number(elem.id);
-        fullElemPage[index].style.display = "block";dd
+        fullElemPage[index].style.display = "block";
     });
 });
 
