@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.section_Main{
+   height: 650px;
+   width: calc(100% - 130px);
+   margin: 0 65px;
+   background-image: url(https://media.istockphoto.com/id/1132480369/photo/a-man-playing-tennis-on-the-court-on-a-beautiful-sunny-day.jpg?s=2048x2048&w=is&k=20&c=mcpgD1TN4N2O1Zb2cz_b3LzURIKQDFhEZoE4xL6WNhc=);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   border-radius: 25px;
+}
+
+.Main_Content{
+    color: white;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.Main_Content>h1{
+  font-size: 60px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.subContent_div{
+   padding-top: 30px;
+   color: white;
+   text-align: center;
+}
+
+.subContent_div>p{
+    font-size: 25px;
+    margin: 0;
+    line-height:1.2;
+}
+
+.Section_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn{
+  font-size: 15px;
+  padding: 10px 20px;
+  background-color: black;
+  font-weight: 400;
+  color: white;
+  border-radius: 20px;
+  border: none;
+}
+
+.btn:active{
+    scale: 0.95;
+}
+
+.Section_footer{
+    font-size: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   color: white;
+   margin: 175px 50px;
+}
+
+.footer_list{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   list-style: none;
+   gap: 20px;
+}
+
+.footer_one{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+} 
+
+.footer_img{
+    height: 45px;
+    width: 130px;
+    gap: 5px;
+    border-radius:30px;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.63);
+    border: none;
+}
+
+.user-one img,
+.user-two img,
+.user-three img
+{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    gap: 10px;
+    object-fit: cover;
+}
+

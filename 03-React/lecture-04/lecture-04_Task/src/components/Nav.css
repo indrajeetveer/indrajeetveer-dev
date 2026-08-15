@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.main{
+    margin: 10px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.logo{
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.ui_List{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+    list-style: none;
+    font-weight: 100;
+    font-size: 18px;
+}
+
+.book_button{
+  font-size: 15px;
+  padding: 10px 20px;
+  background-color: black;
+  font-weight: 400;
+  color: white;
+  border-radius: 20px;
+  border-color: white;
+}
+
+.book_button:active{
+    scale: 0.95;
+}
+
+.ui_List > li {
+    padding: 5px 9px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+
+.ui_List>li:hover{
+    background-color: rgba(227, 221, 211, 0);
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px 9px;
+    transition: 1.5s ;
+}
+
+.ri-arrow-right-up-long-line{
+    margin-left: 5px;
+}
