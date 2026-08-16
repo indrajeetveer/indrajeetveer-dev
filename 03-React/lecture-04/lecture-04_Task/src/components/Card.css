@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.main-card-Container{
+   margin-top: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 35px;
+}
+
+.card-one,
+.card-two,
+.card-three{
+    height: 350px;
+    width: 430px;
+    border: 2px solid black;
+    border-radius: 35px;
+}
+
+.white-text {
+    font-size: 25px;
+    color: white;
+    white-space: nowrap;
+    line-height: 1.5;
+}
+
+.normal-text {
+    font-size: 23px;
+    color: #777777c4;
+    white-space: nowrap;
+     line-height: 1.5;
+}
+
+.normal-text>spam{
+    color: white;
+    font-size: 23px;
+    line-height: 1.5;
+     white-space: nowrap;
+}
+
+.card-one{
+    padding: 10px 20px;
+    background: black;
+}
+
+.card-one>img{
+    height: 60px;
+    width: 50px;
+    margin-bottom: 30px;
+}
+
+.one-card-bottom{
+    margin: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.card-button>button{
+    padding: 7px 25px ;
+    background-color: rgb(117, 155, 245);
+    border-radius: 40px;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.circle{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(117, 155, 245);
+    border: 6px solid white;
+    border-radius: 50%;
+
+}
+
+.one-card-bottom-text>h3{
+    color: white;
+   color: #777777c4
+}
+.card-two{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(https://media.istockphoto.com/id/1425564599/photo/full-of-energy-male-fitness-fashion-sportsman-on-sky-background-handsome-athlete-with-yoga.webp?a=1&b=1&s=612x612&w=0&k=20&c=HmDpvofZiguPeaNhHRnZBtWIMj0aMv9klFS8szSGvfw=);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.card-two>button{
+    padding: 15px 25px;
+    color: white;
+    font-size: 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    border: none;
+    background-color:  rgba(255, 255, 255, 0.527);
+}
+
+.card-two>button:active{
+    scale: 0.95;
+}

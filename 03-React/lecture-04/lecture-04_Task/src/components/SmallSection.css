@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.Small-section-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+    gap: 290px;
+    font-size: 20px;
+}
+
+.Small-section-button>button{
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 17px;
+    border: 0.8px solid rgba(0, 0, 0, 0.178);
+    background-color: white; 
+    font-weight: 100;  
+}
+
+.Small-section-info{
+    font-weight: 400;
+}
