@@ -32,7 +32,60 @@ const Card = () => {
           </div>
 
           <div className='card-three'>
-              
+                <h1>100+</h1>
+                <h2>Pro Coaches</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                
+                <div className='card-three-div1'>
+                     <div>
+                        <h3>Beginner</h3>
+                     </div>
+
+                     <div className='Dotes'>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                     </div>
+
+                     <h1>55</h1>
+                </div>
+
+                <div className='card-three-div2'>
+                     <div>
+                        <h3>Intermediate</h3>
+                     </div>
+
+                       <div className='Dotes1'>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                     </div>
+
+                     <h1>40</h1>
+                </div>
+
+                <div className='card-three-div3'>
+                      <div>
+                        <h3>Advance</h3>
+                     </div>
+
+                      <div className='Dotes2'>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                          <h1></h1>
+                     </div>
+
+                     <h1>35</h1>
+                </div>
           </div>
     </div>
   )

@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.SmallSection-main{
+    margin-top: 50px;
+}
+
+.SmallSection-main>h1{
+    text-align: center;
+}
+
+.info1{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+   justify-content: space-evenly;
+}
+
+.info1>div>h1{
+    text-align: center;
+}
+
+.info1>div>p{
+    font-size: 20px;
+    font-weight: 600;
+}

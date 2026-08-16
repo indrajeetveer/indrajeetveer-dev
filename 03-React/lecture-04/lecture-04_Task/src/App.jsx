@@ -3,6 +3,7 @@ import Nav from './components/Nav.jsx'
 import Section from './components/Section.jsx'
 import SmallSection from './components/SmallSection.jsx'
 import Card from './components/Card.jsx'
+import SmallSection1 from "./components/SmallSection1.jsx";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
        <Section />
        <SmallSection />
        <Card />
+       <SmallSection1/>
     </div>
   )
 }
