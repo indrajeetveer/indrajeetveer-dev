@@ -1,22 +1,130 @@
-import React from "react";
+import React, { useState } from "react";
 
 const App = () => {
-  let studentInfo = {
-    name: "veer",
-    age: 22,
-    email: "Indrajeet@gmail.com",
-    RollNo: 57,
+  const [username, setusername] = useState("");
+  const [userimg, setuserimg] = useState("");
+  const [userposition, setuserposition] = useState("");
+  const [userDes, setuserDes] = useState("");
+
+  const localData = JSON.parse(localStorage.getItem("all-users")) || [];
+  const [allinfo, setallinfo] = useState(localData);
+
+  const formHandle = (e) => {
+    e.preventDefault();
+    //   console.log(username)
+    //   console.log(userimg)
+    //   console.log(userposition)
+    //   console.log(userDes)
+
+    let newarray = [...allinfo];
+    newarray.push({ username, userimg, userposition, userDes });
+    setallinfo(newarray);
+    localStorage.setItem("all-users", JSON.stringify(newarray));
+
+    setusername("");
+    setuserimg("");
+    setuserDes("");
+    setuserposition("");
   };
 
-  const newInfo = JSON.stringify(studentInfo);
+  const removeCrad = (id) => {
+    let copy = [...allinfo];
+
+    const conform = confirm("Are you shure to delete an this card");
+
+    if (conform) {
+      copy.splice(id, 1);
+    } else {
+      alert("The Crad is not Deleted");
+    }
+    setallinfo(copy);
+    localStorage.setItem("all-users", JSON.stringify(copy));
+  };
 
   return (
-    <div>
-      {localStorage.setItem("Name", "Indrajeet")}
-      {localStorage.setItem("Age", 23)}
-      {localStorage.setItem("email", "indrajeet@gmail.com")}
-      {localStorage.setItem("obj", newInfo)}
-      {localStorage.getItem("obj")}
+    <div className="flex flex-wrap">
+      <form
+        onSubmit={(e) => {
+          formHandle(e);
+        }}
+      >
+        <input
+          value={username}
+          onChange={(e) => {
+            setusername(e.target.value);
+          }}
+          className="text-xl border-1 px-4 py-2 rounded-xl m-2 font-bold"
+          type="text"
+          placeholder="Enter your name"
+          required
+        />
+
+        <input
+          value={userimg}
+          onChange={(e) => {
+            setuserimg(e.target.value);
+          }}
+          className="text-xl border-1 px-4 py-2 rounded-xl m-2 font-bold"
+          type="text"
+          placeholder="Image url"
+        />
+
+        <input
+          value={userposition}
+          onChange={(e) => {
+            setuserposition(e.target.value);
+          }}
+          className="text-xl border-1 px-4 py-2 rounded-xl m-2 font-bold"
+          type="text"
+          placeholder="Position"
+        />
+
+        <input
+          value={userDes}
+          onChange={(e) => {
+            setuserDes(e.target.value);
+          }}
+          className="text-xl border-1 px-4 py-2 rounded-xl m-2 font-bold"
+          type="text"
+          placeholder="Description"
+        />
+
+        <button className=" active:scale-95 text-xl border-none px-68 bg-green-500 text-white py-2 rounded-xl m-2 font-bold">
+          Submit
+        </button>
+      </form>
+
+      <div className="flex flex-wrap m-10 gap-5">
+        {allinfo.map((e, id) => {
+          return (
+            <div className="border-1 h-[340px] w-[350px] text-center rounded-3xl">
+              <h1 className="flex item-center justify-center mt-6">
+                <img
+                  className="shadow-2xl bg-center bg-cover  border-none h-[100px] w-[100px] rounded-[50%] "
+                  src={e.userimg}
+                  alt="img"
+                />
+              </h1>
+
+              <h1 className="text-3xl mt-2 font-bold text-sky-500">
+                {e.username}
+              </h1>
+              <h2 className="mt-3 text-2xl font-bold text-amber-500">
+                {e.userposition}
+              </h2>
+              <p className="text-md mt-2 font-semibold">{e.userDes}</p>
+              <button
+                onClick={() => {
+                  removeCrad(id);
+                }}
+                className=" active:scale-95 mt-5 border-none px-6 py-1 font-bold rounded-md bg-red-700 text-white "
+              >
+                Delete
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
