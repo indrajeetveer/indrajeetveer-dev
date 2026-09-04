@@ -6,7 +6,9 @@ const Navbar = () => {
     <div className='flex items-center justify-center gap-40 bg-sky-300 py-2 font-semibold text-white'>
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/about'}>About</NavLink>
-        <NavLink to={'/courses'}>Courses</NavLink>
+        <NavLink to={'/courses'}>
+          
+        </NavLink>
     </div>
   )
 }
