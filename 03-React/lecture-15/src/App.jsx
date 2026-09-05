@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Courses from "./Pages/Courses";
 import Coder from "./Pages/Coder";
 import Coder1 from "./Pages/Coder1";
+import { Footer } from "./components/Footer";
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
             <Route path="/courses/coder1" element={<Coder1/>}></Route>
          </Route>
       </Routes>
+
+      <Footer/>
     </div>
   );
 };

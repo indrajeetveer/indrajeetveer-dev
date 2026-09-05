@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  
+  const [theme, setTheme] = useState('light')
 
-export default App
+  const changeTheme = (newTheme)=>{
+    setTheme(newTheme)
+  }
+ 
+  return (
+    <div>
+      <h1>Theme is an {theme}</h1>
+      <Navbar changeTheme={changeTheme}/>
+
+    </div>
+  );
+};
+
+export default App;
