@@ -7,6 +7,7 @@ const Navbar = () => {
   // let mydata1 = useSelector((mystore) => mystore.cartCounter.cartCount);
   // console.log(mydata1);
 
+  let cardData = useSelector((mydata) => mydata.cartCounter.cart);
   return (
     <nav class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -54,7 +55,7 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/cartpage">Cart (0)</Link>
+              <Link to="/cartpage">Cart ({cardData.length})</Link>
             </li>
             <li>
               <h1>Count</h1>

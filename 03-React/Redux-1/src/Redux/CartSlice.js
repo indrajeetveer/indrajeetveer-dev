@@ -3,18 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 export let cartSlice = createSlice({
   name: "Cart",
   initialState: {
-    cart: [],
+    cart: localStorage.getItem("Cart")
+      ? JSON.parse(localStorage.getItem("Cart"))
+      : [],
   },
   reducers: {
-    addTocart: (state , reqData) => {
-      console.log('The Data is recive in an cartSlice',reqData.payload)
+    addTocart: (state, reqData) => {
+      let { obj } = reqData.payload;
+      state.cart = [obj, ...state.cart];
+      localStorage.setItem("Cart", JSON.stringify(state.cart));
     },
-    deleteCart: (state) => {
-      
+    deleteCart: (state, reqData) => {
+      let { id } = reqData.payload;
+      state.cart = state.cart.filter((obj) => obj.id != id);
+      localStorage.setItem("Cart", JSON.stringify(state.cart));
     },
-    changeQty: (state) => {
-      
-    },
+    changeQty: (state) => {},
   },
 });
 
