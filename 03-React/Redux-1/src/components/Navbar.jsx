@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  let mydata = useSelector((mystore)=>mystore.counterStore.count)
-  console.log(mydata)
+  // let mydata = useSelector((mystore) => mystore.counterStore.count);
+  // let mydata1 = useSelector((mystore) => mystore.cartCounter.cartCount);
+  // console.log(mydata1);
+
   return (
     <nav class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -52,10 +54,10 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/cartpage">Cart</Link>
+              <Link to="/cartpage">Cart (0)</Link>
             </li>
             <li>
-              <h1>Count {mydata}</h1>
+              <h1>Count</h1>
             </li>
           </ul>
         </div>
