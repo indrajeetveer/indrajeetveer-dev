@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTocart, deleteCart } from "../Redux/CartSlice";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 function ProductCart({ product }) {
   let { image, title, price, id, description, rating } = product;
@@ -28,8 +30,22 @@ function ProductCart({ product }) {
   };
 
   let removeItem = () => {
-    toast.success("Item remove ");
-    dispatch(deleteCart({ id }));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) dispatch(deleteCart({ id }));
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success",
+      });
+    });
   };
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">

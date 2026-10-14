@@ -1,9 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import CartRow from "../components/CartRow";
+import { useSelector } from "react-redux";
 
 const CartPage = () => {
   let dispatch = useDispatch();
+  let cart = useSelector((mydata) => mydata.cartCounter.cart);
+
+  let total = cart.reduce((tot, obj) => (tot += obj.qty * obj.price), 0);
+
   return (
     <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16 mt-8">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
@@ -13,7 +18,13 @@ const CartPage = () => {
         <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
           <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
             <div className="space-y-6">
-             <CartRow/>
+              {cart.length >= 1 ? (
+                cart.map((cartObject, index) => (
+                  <CartRow cartObject={cartObject} key={index} />
+                ))
+              ) : (
+                <p>No data Found</p>
+              )}
             </div>
           </div>
           <div className="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
@@ -28,31 +39,16 @@ const CartPage = () => {
                       Original price
                     </dt>
                     <dd className="text-base font-medium text-gray-900 dark:text-white">
-                      $7,592.00
+                      ${Math.round(total, 2)}
                     </dd>
                   </dl>
-                  <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Savings
-                    </dt>
-                    <dd className="text-base font-medium text-green-600">
-                      -$299.00
-                    </dd>
-                  </dl>
-                  <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Store Pickup
-                    </dt>
-                    <dd className="text-base font-medium text-gray-900 dark:text-white">
-                      $99
-                    </dd>
-                  </dl>
+
                   <dl className="flex items-center justify-between gap-4">
                     <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
                       Tax
                     </dt>
                     <dd className="text-base font-medium text-gray-900 dark:text-white">
-                      $799
+                      $99
                     </dd>
                   </dl>
                 </div>
@@ -61,7 +57,7 @@ const CartPage = () => {
                     Total
                   </dt>
                   <dd className="text-base font-bold text-gray-900 dark:text-white">
-                    $8,191.00
+                   ${Math.round(total, 2)+99}
                   </dd>
                 </dl>
               </div>

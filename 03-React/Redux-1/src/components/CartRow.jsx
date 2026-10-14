@@ -1,13 +1,57 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
+import { deleteCart } from "../Redux/CartSlice";
+import { changeQty } from "../Redux/CartSlice";
 
-const CartRow = () => {
+const CartRow = ({ cartObject }) => {
+  console.log(cartObject);
+  let { id, qty } = cartObject;
+
+  let dispatch = useDispatch();
+
+  let removeItem = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) dispatch(deleteCart({ id }));
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success",
+      });
+    });
+  };
+
+  let chageQtyincart = (type) => {
+    let finalqty = qty;
+    if (type == "+") {
+      finalqty = qty + 1;
+    } else {
+      if (type == "-") {
+        if (qty > 1) {
+          finalqty = qty - 1;
+        }
+      }
+    }
+
+    dispatch(changeQty({ id, finalqty }));
+  };
+
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
       <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
         <a href="#" className="w-20 shrink-0 md:order-1">
           <img
             className="h-20 w-20 dark:hidden"
-            src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg"
+            src={cartObject.image}
             alt="imac image"
           />
           <img
@@ -22,6 +66,9 @@ const CartRow = () => {
         <div className="flex items-center justify-between md:order-3 md:justify-end">
           <div className="flex items-center">
             <button
+              onClick={() => {
+                chageQtyincart("-");
+              }}
               type="button"
               id="decrement-button-5"
               data-input-counter-decrement="counter-input-5"
@@ -49,11 +96,14 @@ const CartRow = () => {
               data-input-counter=""
               className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white"
               placeholder=""
-              defaultValue={3}
+              Value={cartObject.qty}
               required=""
             />
             <button
               type="button"
+              onClick={() => {
+                chageQtyincart("+");
+              }}
               id="increment-button-5"
               data-input-counter-increment="counter-input-5"
               className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
@@ -77,7 +127,7 @@ const CartRow = () => {
           </div>
           <div className="text-end md:order-4 md:w-32">
             <p className="text-base font-bold text-gray-900 dark:text-white">
-              $2,997
+              $ {cartObject.qty * cartObject.price}
             </p>
           </div>
         </div>
@@ -86,7 +136,7 @@ const CartRow = () => {
             href="#"
             className="text-base font-medium text-gray-900 hover:underline dark:text-white"
           >
-            APPLE iPhone 15 5G phone, 256GB, Gold
+            {cartObject.title} | ${cartObject.price}
           </a>
           <div className="flex items-center gap-4">
             <button
@@ -113,6 +163,7 @@ const CartRow = () => {
               Add to Favorites
             </button>
             <button
+              onClick={removeItem}
               type="button"
               className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"
             >
