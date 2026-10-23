@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
 import { nanoid } from "nanoid";
 
 const App = () => {
-  const [postdata, setpostdata] = useState([]);
+  const [postdata, setpostdata] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("empData")) || [];
+    } catch {
+      return [];
+    }
+  });
   const [name, setname] = useState("");
   const [description, setdescription] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("empData", JSON.stringify(postdata));
+  }, [postdata]);
+
+  useEffect(() => {
+    const Savedata = JSON.parse(localStorage.getItem("empData"));
+    console.log(Savedata);
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
