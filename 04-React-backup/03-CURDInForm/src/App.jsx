@@ -3,6 +3,7 @@ import Card from "./components/Card";
 import { nanoid } from "nanoid";
 
 const App = () => {
+  console.log("App rerender");
   const [postdata, setpostdata] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("empData")) || [];
@@ -12,6 +13,7 @@ const App = () => {
   });
   const [name, setname] = useState("");
   const [description, setdescription] = useState("");
+  const [edit, setedit] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("empData", JSON.stringify(postdata));
@@ -25,9 +27,22 @@ const App = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    setpostdata([...postdata, { id: nanoid(), name, description }]);
+    if (edit != null) {
+      const copy = postdata.map((item) =>
+        item.id === edit ? { ...item, name, description } : item,
+      );
+
+      setpostdata(copy);
+      setedit(null);
+    } else {
+      setpostdata([...postdata, { id: nanoid(), name, description }]);
+    }
     setname("");
     setdescription("");
+
+    // setpostdata([...postdata, { id: nanoid(), name, description }]);
+    // setname("");
+    // setdescription("");
   };
 
   const deleteHandler = (id) => {
@@ -64,7 +79,13 @@ const App = () => {
           </button>
         </form>
       </div>
-      <Card postdata={postdata} deleteHandler={deleteHandler} />
+      <Card
+        postdata={postdata}
+        deleteHandler={deleteHandler}
+        setedit={setedit}
+        setname={setname}
+        setdescription={setdescription}
+      />
     </div>
   );
 };
