@@ -997,3 +997,131 @@ module.exports = {
   searchRotated,
   findKthLargest,
 };
+
+/* JAVASCRIPT DSA INTERVIEW QUESTIONS WITH ANSWERS */
+
+// ===== TOPIC 1: STRINGS =====
+
+// 1. Reverse a string
+console.log("hello".split("").reverse().join("")); // olleh
+
+// 2. Check palindrome
+let s = "madam";
+console.log(s === s.split("").reverse().join("")); // true
+
+// 3. Count vowels
+console.log(("javascript".match(/[aeiou]/gi) || []).length); // 3
+
+// 4. Convert to uppercase
+console.log("hello".toUpperCase()); // HELLO
+
+// 5. Count characters
+console.log("hello".length); // 5
+
+// ===== TOPIC 2: ARRAYS =====
+
+// 1. Find largest element
+console.log(Math.max(...[10, 20, 5, 30])); // 30
+
+// 2. Find smallest element
+console.log(Math.min(...[10, 20, 5, 30])); // 5
+
+// 3. Sum of array elements
+console.log([1, 2, 3, 4].reduce((a, b) => a + b, 0)); // 10
+
+// 4. Remove duplicates
+console.log([...new Set([1, 2, 2, 3])]); // [1, 2, 3]
+
+// 5. Find even numbers
+console.log([1, 2, 3, 4, 5, 6].filter((n) => n % 2 === 0)); // [2, 4, 6]
+
+// ===== TOPIC 3: NUMBERS =====
+
+// 1. Factorial
+let n = 5,
+  fact = 1;
+for (let i = 1; i <= n; i++) fact *= i;
+console.log(fact); // 120
+
+// 2. Even or odd
+console.log(7 % 2 === 0 ? "Even" : "Odd"); // Odd
+
+// 3. Check prime number
+function isPrime(n) {
+  if (n < 2) return false;
+  for (let i = 2; i * i <= n; i++) if (n % i === 0) return false;
+  return true;
+}
+console.log(isPrime(7)); // true
+
+// 4. Reverse a number
+console.log(Number("1234".split("").reverse().join(""))); // 4321
+
+// 5. Sum of digits
+let num = 1234,
+  sum = 0;
+while (num > 0) {
+  sum += num % 10;
+  num = Math.floor(num / 10);
+}
+console.log(sum); // 10
+
+// ===== TOPIC 4: SEARCHING AND SORTING =====
+
+// 1. Linear search
+console.log([10, 20, 30].indexOf(20)); // 1
+
+// 2. Binary search (sorted array)
+function binarySearch(a, target) {
+  let l = 0,
+    r = a.length - 1;
+  while (l <= r) {
+    let m = Math.floor((l + r) / 2);
+    if (a[m] === target) return m;
+    if (a[m] < target) l = m + 1;
+    else r = m - 1;
+  }
+  return -1;
+}
+console.log(binarySearch([10, 20, 30, 40], 30)); // 2
+
+// 3. Sort array ascending
+console.log([5, 2, 8, 1].sort((a, b) => a - b)); // [1, 2, 5, 8]
+
+// 4. Second-largest distinct number
+console.log([...new Set([10, 20, 20, 30])].sort((a, b) => b - a)[1]); // 20
+
+// 5. Merge two arrays
+console.log([1, 2].concat([3, 4])); // [1, 2, 3, 4]
+
+// ===== TOPIC 5: FUNCTIONS AND RECURSION =====
+
+// 1. Add two numbers
+function add(a, b) {
+  return a + b;
+}
+console.log(add(5, 3)); // 8
+
+// 2. Recursive factorial
+function factorial(n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}
+console.log(factorial(5)); // 120
+
+// 3. Fibonacci number
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+console.log(fibonacci(6)); // 8
+
+// 4. Square of a number
+const square = (n) => n * n;
+console.log(square(4)); // 16
+
+// 5. Check positive, negative, or zero
+function checkNumber(n) {
+  return n > 0 ? "Positive" : n < 0 ? "Negative" : "Zero";
+}
+console.log(checkNumber(-5)); // Negative
