@@ -1,122 +1,128 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useRef, useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  console.log("App is rerender");
+  const [formData, setformData] = useState([]);
+
+  // used the useRef() hook
+
+  const name = useRef(null);
+  const email = useRef(null);
+  const phoneNumber = useRef(null);
+  const description = useRef(null);
+
+  // const [name, setname] = useState("");
+  // const [email, setemail] = useState("");
+  // const [phoneNumber, setphoneNumber] = useState("");
+  // const [description, setdescription] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newData = {
+      name: name.current.value,
+      email: email.current.value,
+      phoneNumber: phoneNumber.current.value,
+      description: description.current.value,
+    };
+
+    console.log(newData);
+
+    setformData((prev) => [...prev, newData]);
+    e.target.reset();
+    name.current.focus();
+
+    // let newData = [...formData, { name, email, phoneNumber, description }];
+    // setformData(newData);
+    // setemail("");
+    // setname("");
+    // setphoneNumber("");
+    // setdescription("");
+  };
+
+  localStorage.setItem("empData", JSON.stringify(formData));
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
+    <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-10">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md space-y-5 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200 sm:p-8"
+      >
+        <h1 className="text-2xl font-semibold text-slate-900">Contact us</h1>
+
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+          <label
+            htmlFor="name"
+            className="mb-1.5 block text-sm font-medium text-slate-800"
+          >
+            Name
+          </label>
+          <input
+            ref={name}
+            id="name"
+            type="text"
+            placeholder="Your name"
+            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 placeholder-slate-400 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-600/40"
+          />
         </div>
+
+        <div>
+          <label
+            htmlFor="email"
+            className="mb-1.5 block text-sm font-medium text-slate-800"
+          >
+            Email
+          </label>
+          <input
+            ref={email}
+            id="email"
+            type="email"
+            placeholder="name@example.com"
+            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 placeholder-slate-400 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-600/40"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="phone"
+            className="mb-1.5 block text-sm font-medium text-slate-800"
+          >
+            Phone number
+          </label>
+          <input
+            ref={phoneNumber}
+            id="phone"
+            type="tel"
+            placeholder="+91 98765 43210"
+            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 placeholder-slate-400 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-600/40"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="description"
+            className="mb-1.5 block text-sm font-medium text-slate-800"
+          >
+            Description
+          </label>
+          <textarea
+            ref={description}
+            id="description"
+            rows={4}
+            placeholder="Write your message"
+            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-slate-900 placeholder-slate-400 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-600/40"
+          />
+        </div>
+
         <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+          type="submit"
+          className="w-full rounded-lg bg-teal-700 px-5 py-3 font-medium text-white transition hover:bg-teal-800"
         >
-          Count is {count}
+          Submit
         </button>
-      </section>
+      </form>
+    </main>
+  );
+};
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
-}
-
-export default App
+export default App;
