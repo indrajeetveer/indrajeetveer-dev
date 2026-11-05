@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router";
 
 const Home = () => {
   const [data, setdata] = useState([]);
@@ -20,7 +21,8 @@ const Home = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {data.map((elem) => (
-          <div
+          <Link
+            to={`/product/${elem.id}`}
             key={elem.id}
             className="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden p-4"
           >
@@ -75,7 +77,7 @@ const Home = () => {
                 View Details
               </button>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
