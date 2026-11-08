@@ -406,3 +406,11 @@ while (node !== null) {
   node = node.next;
 }
 console.log("Q23:", values.join(" -> "));
+
+let age = 30;
+
+if (age >= 18) {
+  console.log("you can vote");
+} else {
+  console.log("you can't vote");
+}
