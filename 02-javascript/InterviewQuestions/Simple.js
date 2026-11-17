@@ -556,8 +556,16 @@ const { forwardRef } = require("react");
 // console.log("5. Maximum Water:", maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
 
 function addition(...num) {
-   let multiply = num.map((elem)=>elem*2)
-   console.log(multiply)
+  let multiply = num.map((elem) => elem * 2);
+  console.log(multiply);
 }
 
 addition(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+
+let i = 1;
+
+while (i <= 10) {
+    console.log(i);
+    i++;
+}
